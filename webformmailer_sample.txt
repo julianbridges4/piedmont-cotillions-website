@@ -1,0 +1,47 @@
+<%
+ 'Form should include a hidden field named redirect otherwise the user will be redirected to the home page
+
+ 'Required settings - these must be set for this script to work
+ mail_to = "geri@piedmontcotillions.com"
+ mail_from = "geri@piedmontcotillions.com"
+
+ On Error Resume Next
+
+ host_url = Request.ServerVariables("HTTP_HOST")
+ req_method = Request.ServerVariables("REQUEST_METHOD")
+
+ mail_body = vbCrLf
+
+ 'Gather form submission items and translate into message body
+ If err.number 0 Then
+ Response.Write "Error processing mail request. Error code: " & err.number
+ Else
+ If (req_method = "GET") Then
+ For Each Item In request.QueryString
+ If item "" Then
+ key = item
+ value = Request.QueryString(item)
+ If(lcase(key) = "redirect") Then
+ landing_page = value
+ Else
+ mail_body = mail_body + ucase(key) + ": " + value + vbCrLf
+ End If
+ End If
+ Next
+ ElseIf (req_method = "POST") Then
+ For Each Item In request.form
+ If item "" Then
+ key = item
+ value = Request.Form(item)
+ If(lcase(key) = "redirect") Then
+ landing_page = value
+ Else
+ mail_body = mail_body + ucase(key) + " " + value + vbCrLf 
+End If
+ End If
+ Next
+ End If
+ End If
+
+ 'Generate mail message.
+ If err.number 0 Then Response.Write "Error processing mail request. Error code: " & err.number Else Set msg = Server.CreateObject("CDO.Message") Set myCon = Server.CreateObject ("CDO.Configuration") 'Out going SMTP server myCon.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "localhost" myCon.Fields("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2 myCon.Fields.Updatemsg.Configuration = myConmsg.Subject = "Message from " & host_url msg.From = mail_from msg.To = mail_to msg.TextBody = mail_body msg.SendSet msg = Nothing End IfIf err.number 0 Then Response.Write "Error processing mail request. Error code: " & err.number Else If landing_page "" Then Response.Redirect landing_page Else Response.Redirect host_url End If End If %>

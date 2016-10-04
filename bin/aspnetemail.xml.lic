@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<license version="1.1">
+  <Customer>
+    <name>advancedintellect-2705
+Brian Lloyd   (Lloyd, Brian)
+102 Corporate Center Blvd
+Greensboro, NC	 27408
+US United States
+3365474637
+num:2</name>
+  </Customer>
+  <products>
+    <Product>
+      <name>aspNetEmail</name>
+      <version>3</version>
+      <licensetype>server</licensetype>
+      <expires>-1</expires>
+    </Product>
+  </products>
+  <LicenseInformation>
+    <Version>1.1</Version>
+    <H1>0</H1>
+    <H2>O/FHdBifGKKIze+sQRFbjg==</H2>
+  </LicenseInformation>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <Reference URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>Pfte+qpGf9xde7B5Tq1/XbvrJe0=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>oYLNJx+H4aNRWNT21txYALwhw87NhGLCnR2n+ZM3zwtmgl0lB7gyZyv2rDoJbmavQQ0UWbtPGqI6XyAI+xY77Tt7OWixrhi77BGwApImH52sqDNGbYzjWc+3iOTDEqAxoZNaua+Eok5WF15k9l54kOAkn12XbJFRpW5fClskmos=</SignatureValue>
+  </Signature>
+</license>
